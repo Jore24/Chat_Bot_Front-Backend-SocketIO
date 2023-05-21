@@ -1,0 +1,111 @@
+.contetChat{
+    width: auto;
+    margin-left: 10px;
+    height: 600px;
+    stroke-linecap: round;
+    display: flex;
+    flex-direction: column;
+    align-items: space-between;
+}
+.content_text{
+    width: auto;
+    padding:  10px 20px;
+    margin: 3px 0;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+    -webkit-box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+    -moz-box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+}
+.content_text_main {
+    width: auto;
+    height: 460px;
+    overflow: scroll;
+    padding-bottom: 50px;
+}
+.content_text_main div {
+    width: auto;
+    height: auto;
+    padding: 0 10px 0 10px;
+    display: flex;
+    justify-content: end;
+}
+.content_text_main div li {
+    background-color: #F9B52F;
+    color: white;
+}
+
+.content_text_main div:nth-child(even){
+    justify-content: start;
+    align-items: end;
+    background-color: rgb(255, 255, 255);
+    color: #6D6E71;
+}
+
+.content_text_main div:nth-child(even) li{
+    background-color: rgb(255, 255, 255);
+    color: #6D6E71;
+}
+
+.contentInput{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    margin-top: 10px;
+    flex-direction: row;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.btnBorrar{
+    width: 40px;
+    height: 40px;
+    background-color: #F9B52F;
+    border-radius: 50px;
+    border: none;
+    box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+    -webkit-box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+    -moz-box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+}
+.btnBorrar img{
+    width: 40%;
+    height: 40%;
+}
+
+.input_main{
+    width: 92.5%;
+    margin: 0 10px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+    -webkit-box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+    -moz-box-shadow: -4px 15px 23px -13px rgba(0,0,0,0.5);
+}
+
+.input_main input{
+    width: 92%;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    color: #6B6B6B;
+    padding: 10px 20px;
+}
+.btnEnviar{
+    width: 40px;
+    height:40px;
+    border-radius: 10px;
+    background-color: white;
+    border: none;
+}
+
+.btnEnviar img{
+    width: 60%;
+}

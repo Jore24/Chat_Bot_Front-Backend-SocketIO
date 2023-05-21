@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import io from 'socket.io-client';
+import "../../style/form.css";
+import Borrar from '../../assets/IconBorrar.svg';
+import Enviar from '../../assets/Enviar.svg';
 
 const socket = io('http://localhost:5000');
 
@@ -34,25 +37,31 @@ const App = () => {
   };
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '50px' }}>
-      <h1>Chat</h1>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <div className='contetChat'>
+      <ul className='content_text_main' style={{ listStyle: 'none', padding: 0 }}>
         {messages.map((message, index) => (
-          <li key={index} style={{ marginBottom: '10px', backgroundColor: '#f0f0f0', padding: '10px', borderRadius: '5px', width: '300px' }}>
-            <p style={{ margin: 0 }}>ID del Socket: {message.socket_id}</p>
-            <p style={{ margin: 0 }}>Mensaje: {message.message}</p>
-          </li>
+          <div>
+            <li className='content_text' key={index}>
+              {/* <p style={{ margin: 0 }}>ID del Socket: {message.socket_id}</p>
+              <p style={{ margin: 0 }}>Mensaje: {message.message}</p> */}
+              <p style={{ margin: 0 }}>{message.message}</p>
+            </li>
+          </div>
         ))}
       </ul>
-      <form onSubmit={handleSubmit} style={{ display: 'flex', alignItems: 'center' }}>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          style={{ marginRight: '10px', padding: '5px' }}
-        />
-        <button type="submit" style={{ padding: '5px 10px' }}>Enviar</button>
-      </form>
+      <div className='contentInput'>
+        <form onSubmit={handleSubmit} className='form'>
+          <button className='btnBorrar'><img src={Borrar}></img></button>
+          <div className='input_main'>
+            <input
+              type="text"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+            />
+            <button className='btnEnviar' type='submit'><img src={Enviar}></img></button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
