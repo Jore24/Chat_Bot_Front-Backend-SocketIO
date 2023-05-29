@@ -1,3 +1,11 @@
+.activate{
+  color: #6D6E71; 
+}
+.active{
+  color: #F9B52F;
+  margin-left: 10px;
+}
+
 .content_title {
   width: auto;
   height: 100px;
@@ -14,20 +22,15 @@
   flex-direction: row;
 }
 
-
-.active{
-  color: #F9B52F;
-  margin-left: 20px;
-}
-
-.content_main{
+.app{
   width: auto;
   height: auto;
   margin: 5% 7% 0 7% ;
   margin-bottom: 30px;
+  background-color: rgba(240, 248, 255, 0);
 }
 
-.content_main img{
+.logo_app{
   width: 100%;
   height: auto;
 }

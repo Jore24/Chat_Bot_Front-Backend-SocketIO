@@ -18,7 +18,7 @@ function Home() {
         </div>
         <div className="content_main">
           <div className="content_description">
-            <img src={Logo} alt="logo"></img>
+            <img src={Logo} className="logo_home" alt="logo"></img>
             <p><em>REALIZA TU CONSULTA CON EL NUEVO CHAT-BOT</em></p>
           </div>
           <div className="content_chat_main">

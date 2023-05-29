@@ -15,8 +15,8 @@ function App() {
             <h2 className="active"> OLVA</h2>
           </div>
         </div>
-        <div className="content_main">
-            <img src={Descuento} alt="logo"></img>
+        <div className="content_main app"> 
+            <img src={Descuento} className="logo_app" alt="logo"></img>
         </div>
 
       </div>

@@ -51,14 +51,14 @@ const App = () => {
       </ul>
       <div className='contentInput'>
         <form onSubmit={handleSubmit} className='form'>
-          <button className='btnBorrar'><img src={Borrar}></img></button>
+          <button className='btnBorrar'><img src={ Borrar } alt=''></img></button>
           <div className='input_main'>
             <input
               type="text"
               value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
             />
-            <button className='btnEnviar' type='submit'><img src={Enviar}></img></button>
+            <button className='btnEnviar' type='submit'><img src={Enviar} alt=''></img></button>
           </div>
         </form>
       </div>

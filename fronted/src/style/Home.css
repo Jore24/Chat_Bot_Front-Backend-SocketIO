@@ -1,3 +1,7 @@
+
+.activate{
+  color: #F9B52F;
+}
 .content_title {
     width: auto;
     height: 100px;
@@ -11,12 +15,6 @@
   .content_title div{
     display: flex;
     flex-direction: row;
-  }
-  
-  
-  .active{
-    color: #F9B52F;
-    margin-left: 20px;
   }
   
   .content_main{
@@ -85,4 +83,8 @@
     height: 10px;
     background-color: #F9B52F;
     clip-path: polygon(50% 100%, 0 0, 100% 0);
+  }
+  .logo_home{
+    width: 30%;
+    height: auto;
   }

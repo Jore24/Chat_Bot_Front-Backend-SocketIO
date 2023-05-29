@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     font-weight: none;
+    text-decoration: none;
 }
 
 .page{
@@ -33,7 +34,7 @@
     
 }
 
-input {
+.cover input {
     border: none;
     background-color: rgb (229, 226, 226);
     height: 4em;
@@ -43,7 +44,7 @@ input {
     margin: 8px 0;
 }
 
-input:focus {
+.cover input:focus {
     outline-color: #F9B52F;
 }
 
@@ -92,7 +93,7 @@ input:focus {
     
 }
 
-.content_title{
+.content_title_login{
     width: 100%;
     height: auto;
     display: flex;
