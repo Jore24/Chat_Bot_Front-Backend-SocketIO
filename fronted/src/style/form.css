@@ -7,6 +7,8 @@
     flex-direction: column;
     align-items: space-between;
 }
+
+
 .content_text{
     width: auto;
     padding:  10px 20px;
@@ -24,30 +26,57 @@
     overflow: scroll;
     padding-bottom: 50px;
 }
-.content_text_main div {
+
+/**===================== CONTENT CHAT ======================*/
+.content_bot{
+    width: auto;
+    height: auto;
+    padding: 0 10px 0 10px;
+    display: flex;
+    justify-content: start;
+}
+.bot {
+    background-color: rgb(255, 255, 255);
+    color: #6D6E71;
+}
+.content_user{
     width: auto;
     height: auto;
     padding: 0 10px 0 10px;
     display: flex;
     justify-content: end;
 }
-.content_text_main div li {
+.user{
     background-color: #F9B52F;
-    color: white;
+    color: #ffffff;
 }
 
-.content_text_main div:nth-child(even){
+/*---------------------*/
+.options{
+    margin: 15px 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
     justify-content: start;
-    align-items: end;
-    background-color: rgb(255, 255, 255);
-    color: #6D6E71;
 }
 
-.content_text_main div:nth-child(even) li{
-    background-color: rgb(255, 255, 255);
-    color: #6D6E71;
+.options button{
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    border-top: 0px;
+    border-bottom: 0px solid #6D6E71;
+    border-left: 0px;
+    border-right: 0px;
+    outline: none;
+    background-color: white;
+    color:#008BEF
 }
-
+.options button:hover{
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+/*===========================================================*/
 .contentInput{
     width: 100%;
     height: 40px;
@@ -111,5 +140,3 @@
 .btnEnviar img{
     width: 60%;
 }
-
-
