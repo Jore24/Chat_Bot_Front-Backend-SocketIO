@@ -1,16 +1,18 @@
 import React from "react";
 import "../../style/Login.css";
 import Flecha from '../../assets/icon-next 1.png';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function Register() {
 
-  const [setUser] = useState(null)
+  const navigate = useNavigate();
 
-  const [formData, setFormData] = useState({});
+
+  const [ user, setFormData ] = useState({});
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -20,12 +22,13 @@ function Register() {
     try {
       const response = await axios.post('http://localhost:5000/register', data);
       console.log(response.data);
-
+      navigate("/auth/login");
     } catch (error) {
       console.log(error.response.data);
+      navigate("/auth/login");
     }
   };
-  
+
   return (
     <div className="divmain">
       <div className="mancha1">
@@ -64,7 +67,7 @@ function Register() {
                 }
               })}
             />
-            {errors.name && <span className={errors.name}>{errors.name.message}</span>}
+            {errors.username && <span className="content_error">{errors.username.message}</span>}
 
             <input type="number" placeholder="Dni"
               {...register("dni", {
@@ -78,7 +81,7 @@ function Register() {
                 }
               })}
             />
-            {errors.dni && <span className={errors.dni}>{errors.dni.message}</span>}
+            {errors.dni && <span className="content_error">{errors.dni.message}</span>}
 
             <input type="text" placeholder="Dirección"
               {...register("direccion", {
@@ -92,7 +95,7 @@ function Register() {
                 }
               })}
             />
-            {errors.direccion && <span className={errors.direccion}>{errors.direccion.message}</span>}
+            {errors.direccion && <span className="content_error">{errors.direccion.message}</span>}
 
             <input type="email" placeholder="Correo electronico"
               {...register("email", {
@@ -106,7 +109,7 @@ function Register() {
                 }
               })}
             />
-            {errors.email && <span className={errors.email}>{errors.email.message}</span>}
+            {errors.email && <span className="content_error">{errors.email.message}</span>}
             <input type="password" placeholder="Contraseña"
 
               {...register("password", {
@@ -120,14 +123,12 @@ function Register() {
                 }
               })}
             />
-            {errors.password && <span className={errors.password}>{errors.password.message}</span>}
+            {errors.password && <span className="content_error">{errors.password.message}</span>}
 
-            <Link to="/auth/login" className="login-btn">
-              <button type="submit" value="submit">REGRISTRAR</button>
-            </Link>
+            <button className="login-btn" type="submit" value="submit">Registrar</button>
 
             <div className="content_foot">
-              <p> ¿Ya tienes cuenta?</p>
+              <p>¿Ya tienes cuenta?</p>
 
               <Link to="/auth/login">
                 <button className="text">Inicia Sesión aquí </button>
