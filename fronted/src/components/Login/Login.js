@@ -13,6 +13,8 @@ function Login() {
   const [formData, setFormData] = useState({});
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const [error, setError] = useState("");
+
   const onSubmit = async data => {
     setFormData(data);
 
@@ -22,7 +24,7 @@ function Login() {
       if (response.data.success) {
         navigate("/home");
       } else {
-        console.log("Error en el registro");
+        setError(response.data.message);
       }
     } catch (error) {
       console.log(error.response.data);
@@ -81,6 +83,7 @@ function Login() {
               })}
             />
             {errors.password && <span className="content_error">{errors.password.message}</span>}
+            {error && <span className="content_error">{error}</span>}
 
             <button className="login-btn" type="submit" value="submit">Entrar</button>
 
