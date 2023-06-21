@@ -1,9 +1,9 @@
-import FormOption from "./components/form/formOption";
+import Form from "./components/form/form";
 import Header from "./components/ui/Header";
 import Logo from "../src/assets/logo.png";
 import "../src/style/Home.css"
 
-function Home() {
+function ChatBot() {
   return (
     
       <div>
@@ -20,7 +20,7 @@ function Home() {
             <img src={Logo} className="logo_home" alt="logo"></img>
             <p><em>REALIZA TU CONSULTA CON EL NUEVO CHAT-BOT</em></p>
           </div>
-          <div className="content_chat_main_BOS">
+          <div className="content_chat_main">
             <div className="chat_title">
               <p className="bolt">Te damos la bienvenida al nuevo ChatBot</p>
               <p>Experimenta tu copiloto para resolver tus consultas</p>
@@ -29,7 +29,7 @@ function Home() {
                 <div className="triangulo"></div>
               </div>
             </div>
-            <FormOption />
+            <Form />
           </div>
         </div>
       </div>
@@ -37,4 +37,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default ChatBot;

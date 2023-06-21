@@ -7,7 +7,6 @@ import Borrar from '../../assets/IconBorrar.svg';
 import Enviar from '../../assets/Enviar.svg';
 
 
-
 const socket = io('http://localhost:5000');
 
 const App = () => {
