@@ -1,4 +1,6 @@
-import React from "react";
+import { Context } from "../..//conntext/contexsocketio";
+
+import React, {useContext} from "react";
 import "../../style/Login.css";
 import Flecha from '../../assets/icon-next 1.png';
 import { Link } from 'react-router-dom';
@@ -11,6 +13,8 @@ function Login() {
 
   const navigate = useNavigate();
   const [formData, setFormData] = useState({});
+  const { User, setUser } = useContext(Context);
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const [error, setError] = useState("");
@@ -21,8 +25,13 @@ function Login() {
     try {
       const response = await axios.post('http://localhost:5000/login', data);
       console.log(response.data);
-      if (response.data.success) {
+      if (response.data.message === 'Inicio de sesión exitoso') {
+        setUser(response.data.username);
+        //guardar la sesión
+        localStorage.setItem("user", response.data.username);
+        console.log(User)
         navigate("/home");
+
       } else {
         setError(response.data.message);
       }

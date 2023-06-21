@@ -1,11 +1,13 @@
 import Header from "./components/ui/Header";
 import Descuento from "../src/assets/imgDescuento.png";
 import "../src/style/App.css"
-import { ContextSocketProvider } from "./conntext/contexsocketio";
+
+
 
 function App() {
   return (
-    <ContextSocketProvider>
+    
+
       <div>
         <Header />
         <div className="content_title">
@@ -20,7 +22,8 @@ function App() {
         </div>
 
       </div>
-    </ContextSocketProvider>
+      
+
   );
 }
 

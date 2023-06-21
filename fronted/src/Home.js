@@ -2,11 +2,10 @@ import Form from "./components/form/form";
 import Header from "./components/ui/Header";
 import Logo from "../src/assets/logo.png";
 import "../src/style/Home.css"
-import { ContextSocketProvider } from "./conntext/contexsocketio";
 
 function Home() {
   return (
-    <ContextSocketProvider>
+    
       <div>
         <Header />
         <div className="content_title">
@@ -35,7 +34,7 @@ function Home() {
         </div>
 
       </div>
-    </ContextSocketProvider>
+  
   );
 }
 

@@ -1,9 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
+import { UserContext } from '../..//conntext/contexsocketio';
+
 import io from 'socket.io-client';
 import "../../style/form.css";
 import Borrar from '../../assets/IconBorrar.svg';
 import Enviar from '../../assets/Enviar.svg';
-import Context from '../../conntext/contexsocketio';
+
+
 
 const socket = io('http://localhost:5000');
 
@@ -11,6 +14,9 @@ const App = () => {
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const messageListRef = useRef(null);
+  const { User } = useContext(UserContext);
+  console.log(User,"a")
+
 
   useEffect(() => {
     socket.on('message', handleIncomingMessage);
@@ -39,11 +45,12 @@ const App = () => {
     if (message !== null) {
       const userMessage = {
         socket_id: socket.id,
-        message: message
+        message: message,
+        user: User,
       };
       setMessages((prevMessages) => [...prevMessages, userMessage]);
 
-      socket.emit('message', message);
+      socket.emit('message', userMessage);
       setInputValue('');
       scrollToBottom();
     }
@@ -54,6 +61,8 @@ const App = () => {
   };
   return (
     <div className='contetChat'>
+      <p>User: {User}</p>
+
       <ul className='content_text_main' ref={messageListRef}>
         {messages.map((message, index) => (
           <div key={index}>
