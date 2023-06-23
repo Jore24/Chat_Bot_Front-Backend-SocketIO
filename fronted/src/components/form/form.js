@@ -18,12 +18,30 @@ const App = () => {
 
 
   useEffect(() => {
+    const socket = io('http://localhost:5000');
+  
+    socket.on('connect', () => {
+      const initialMessage = '¡Hola! '+User+ '. Soy un asistente virtual. ¿En qué puedo ayudarte hoy?';
+      const options = ['Soporte', 'Sucursales y servicios', 'Reclamos', 'Envíos', 'Cupones y descuentos', 'Agente en línea']
+      
+      const initialBotMessage = {
+        message: initialMessage,
+        options: options,
+        socket_id: 'bot',
+      };
+  
+      handleIncomingMessage(initialBotMessage);
+    });
+    
+  
     socket.on('message', handleIncomingMessage);
-
+  
     return () => {
       socket.off('message', handleIncomingMessage);
     };
   }, []);
+  
+  
 
   const handleIncomingMessage = (data) => {
     setMessages((prevMessages) => [...prevMessages, data]);
@@ -43,7 +61,7 @@ const App = () => {
   const handleSubmitMessage = (message) => {
     if (message !== null) {
       const userMessage = {
-        socket_id: socket.id,
+        socket_id: 'socket.id',
         message: message,
         user: User,
       };
@@ -56,12 +74,13 @@ const App = () => {
   };
 
   const scrollToBottom = () => {
-    messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+    if (messageListRef.current) {
+      messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
+    }
   };
+  
   return (
     <div className='contetChat'>
-      <p>User: {User}</p>
-
       <ul className='content_text_main' ref={messageListRef}>
         {messages.map((message, index) => (
           <div key={index}>
@@ -69,9 +88,10 @@ const App = () => {
               <div className='content_bot'>
                 <li className='content_text bot'>
                   <p>{message.message}</p>
-                  
                   {message.options && message.options.length > 0 ? (
                   <div className='options'>
+                    <div>
+                    </div>
                     {message.options.map((option, index) => (
                       <button key={index} onClick={() => handleOptionClick(option)}>
                         {option}

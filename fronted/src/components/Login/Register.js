@@ -17,15 +17,21 @@ function Register() {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   const onSubmit = async data => {
+    console.log(setFormData)
     setFormData(data);
+    console.log(data)
 
     try {
       const response = await axios.post('http://localhost:5000/register', data);
-      console.log(response.data);
-      navigate("/auth/login");
+
+      if (response.data.message === 'Registro exitoso') {
+        navigate("/auth/login");
+
+      } else {
+        console.log(data, 'hola?')
+      }
     } catch (error) {
       console.log(error.response.data);
-      navigate("/auth/login");
     }
   };
 
@@ -84,14 +90,14 @@ function Register() {
             {errors.dni && <span className="content_error">{errors.dni.message}</span>}
 
             <input type="text" placeholder="Dirección"
-              {...register("direccion", {
+              {...register("address", {
                 required: {
                   value: true,
                   message: "Necesitas este campo"
                 },
                 pattern: {
                   value: /^[a-zA-Z0-9\s,.-]+$/,
-                  message: "La dirección no es correcto"
+                  message: "La dirección no es correcta"
                 }
               })}
             />

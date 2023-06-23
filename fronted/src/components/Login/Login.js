@@ -30,7 +30,7 @@ function Login() {
         //guardar la sesión
         localStorage.setItem("user", response.data.username);
         console.log(User)
-        navigate("/home");
+        navigate("/chatbot");
 
       } else {
         setError(response.data.message);

@@ -16,7 +16,7 @@ const AuthRouter = () => {
         <Routes>
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
-          <Route path="chatBot" element={<ChatBot />} />
+          <Route path="/chatBot" element={<ChatBot />} />
           <Route path="/home" element={<Home />} />
           <Route path="/form" element={<Form />} />
           <Route path="/App" element={<App />} />
