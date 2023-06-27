@@ -1,5 +1,7 @@
-import React, { useEffect, useState, useRef, useContext } from 'react';
-import { UserContext } from '../..//conntext/contexsocketio';
+import React, { useEffect, useState, useRef, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
+
+//import { UserContext } from '../..//conntext/contexsocketio';
 
 import io from 'socket.io-client';
 import "../../style/form.css";
@@ -10,10 +12,14 @@ import Enviar from '../../assets/Enviar.svg';
 const socket = io('http://localhost:5000');
 
 const App = () => {
+  const navigate = useNavigate();
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const messageListRef = useRef(null);
-  const { User } = useContext(UserContext);
+  //const { User } = useContext(UserContext);
+
+  const usernameFromLocalStorage = localStorage.getItem('username');
+  const [User, setUser1] = useState(usernameFromLocalStorage || '');
   console.log(User,"a")
 
 
@@ -70,6 +76,8 @@ const App = () => {
       socket.emit('message', userMessage);
       setInputValue('');
       scrollToBottom();
+      localStorage.setItem('username', User);
+
     }
   };
 
@@ -78,10 +86,30 @@ const App = () => {
       messageListRef.current.scrollTop = messageListRef.current.scrollHeight;
     }
   };
+  const handleLogout = () => {
+    // Eliminar datos del localStorage
+    localStorage.removeItem('username');
+
+    // Actualizar el estado del usuario en el contexto
+    setUser1(null);
+    navigate("/auth/login");
+    
+    console.log('usuario removido')
+  };
+
+  const btnBorrar = () => {
+    socket.emit('borrarMensaje', { message: 'borrar', user: 'username' });
+
+  };
   
   return (
     <div className='contetChat'>
       <ul className='content_text_main' ref={messageListRef}>
+      <div className="contenedor-botones">
+      <button className="btn-cerrar-sesion" onClick={handleLogout}>
+        Cerrar sesión
+      </button>
+    </div>
         {messages.map((message, index) => (
           <div key={index}>
             {message.socket_id === 'bot' ? (
@@ -114,7 +142,7 @@ const App = () => {
       </ul>
       <div className='contentInput'>
         <form onSubmit={handleSubmit} className='form'>
-          <button className='btnBorrar'><img src={Borrar} alt="Borrar" /></button>
+          <button className='btnBorrar'  onClick={btnBorrar} ><img src={Borrar} alt="Borrar"/></button>
           <div className='input_main'>
             <input
               type="text"

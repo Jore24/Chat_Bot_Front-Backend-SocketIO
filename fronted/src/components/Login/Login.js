@@ -26,9 +26,11 @@ function Login() {
       const response = await axios.post('http://localhost:5000/login', data);
       console.log(response.data);
       if (response.data.message === 'Inicio de sesión exitoso') {
+       // localStorage.setItem('username', User);
+        localStorage.setItem("username", response.data.username);
         setUser(response.data.username);
         //guardar la sesión
-        localStorage.setItem("user", response.data.username);
+        
         console.log(User)
         navigate("/chatbot");
 
