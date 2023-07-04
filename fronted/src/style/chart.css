@@ -1,0 +1,13 @@
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px; /* Ajusta la altura del contenedor del gráfico */
+}
+
+canvas {
+  width: 300px; /* Ajusta el ancho del lienzo del gráfico */
+  height: 200px; /* Ajusta la altura del lienzo del gráfico */
+  margin: 10px;
+  border: 1px solid #ccc;
+}

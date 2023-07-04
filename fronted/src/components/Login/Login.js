@@ -26,17 +26,28 @@ function Login() {
       const response = await axios.post('http://localhost:5000/login', data);
       console.log(response.data);
       if (response.data.message === 'Inicio de sesión exitoso') {
-       // localStorage.setItem('username', User);
-        localStorage.setItem("username", response.data.username);
-        setUser(response.data.username);
-        //guardar la sesión
-        
-        console.log(User)
-        navigate("/chatbot");
+        if(response.data.role === 'client') {
+          localStorage.setItem("username", response.data.username);
+          setUser(response.data.username);
+          console.log(User)
+          navigate("/chatbot");
+        }
+        else{
+          localStorage.setItem("username", response.data.username);
+          setUser(response.data.username);
+          console.log(User)
+          navigate("/dashboard");
 
-      } else {
+        }
+        
+        
+      }
+      else {
         setError(response.data.message);
       }
+
+
+      
     } catch (error) {
       console.log(error.response.data);
     }

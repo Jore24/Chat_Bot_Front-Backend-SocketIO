@@ -5,6 +5,7 @@ import Home from '../Home';
 import ChatBot from '../ChatBot';
 import App from '../App';
 import Form from "../components//form/form";
+import Dashboard from '../components/dashboard/dashboard';
 
 
 
@@ -14,6 +15,7 @@ const AuthRouter = () => {
 
       <BrowserRouter>
         <Routes>
+          <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/auth/login" element={<Login />} />
           <Route path="/auth/register" element={<Register />} />
           <Route path="/chatBot" element={<ChatBot />} />
