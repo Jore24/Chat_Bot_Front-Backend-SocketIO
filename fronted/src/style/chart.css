@@ -1,13 +1,285 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+  padding: 0;
+  font-weight: none;
+  text-decoration: none;
+}
+
+.content_main_dash {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.header_second_dash {
+  width: 100%;
+  height: 100px;
+  background-color: #ffffff00;
+}
+
+.header_second_dash div {
+  width: 300px;
+  margin-top: 10px;
+}
+
+.title_main {
+  margin: 13px 0;
+  font-size: 30px;
+  color: #F9B52F;
+  font-weight: bold;
+}
+
+.title_dash {
+  font-size: 15px;
+  color: #000000;
+  font-weight: bold;
+  margin: 15px;
+}
+
+.number_grafic1 {
+  width: 100%;
+  height: auto;
+  text-align: end;
+  padding-right: 15px;
+  font-size: 25px;
+  font-weight: bold;
+  color: #F9B52F;
+}
+
+.line_dash {
+  width: 90%;
+  height: 0.5px;
+  background-color: #DDDDDD;
+  margin: 15px 0;
+  margin-left: 10px;
+}
+
+.grafico_fila_1 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  padding-left: 70px;
+}
+
+.content_1_dash {
+  width: 300px;
+  height: auto;
+  position: relative;
+  border-radius: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
+}
+
+.content_1_dash:last-child {
+  margin-right: 0px;
+}
+.grafico_fila_2 {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  padding: 0 70px;
+}
+
+.content_2_dash {
+  flex: 1;
+  width: auto;
+  height: auto;
+  position: relative;
+  border-radius: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  background: #ffffff;
+  box-shadow: 20px 20px 60px #d9d9d9,
+    -20px -20px 60px #ffffff;
+}
+
+.content_2_dash:last-child {
+  margin-right: 0px;
+}
+
+.cover input {
+  border: none;
+  background-color: rgb (229, 226, 226);
+  height: 4em;
+  width: 80%;
+  border-radius: 0.25em;
+  border-bottom: 1px solid #6B6B6B;
+  padding: 2em;
+  margin: 8px 0;
+}
+
+.cover input:focus {
+  outline-color: #F9B52F;
+}
+
+.login-btn {
+  width: 40%;
+  height: 3em;
+  border: none;
+  outline: none;
+  background-color: #F9B52F;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+  border-radius: 0.25em;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+  margin: 20px 0 15px 0;
+}
+
+
+.login-btn:hover {
+  transform: scale(1.1);
+}
+
+.divmain_dash {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+.description {
+  color: #6B6B6B;
+  font-size: 15px;
+  width: auto;
+
+}
+
+.content_title_login {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+.content_foot {
+  display: flex;
+  flex-direction: row;
+  color: #6B6B6B;
+  margin-bottom: 25px;
+}
+
+.text {
+  color: #F9B52F;
+  font-weight: bold;
+  margin-left: 10px;
+  background-color: white;
+  border: none;
+  font-size: 15px;
+}
+
+.header_dash {
+  width: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  align-items: center;
+  padding: 0 20px;
+  background-color: rgb(255, 255, 255);
+  border-right: 1px solid #DDDDDD;
+  box-shadow: 9px 0px 33px -11px rgba(0,0,0,0.35);
+-webkit-box-shadow: 9px 0px 33px -11px rgba(0,0,0,0.35);
+-moz-box-shadow: 9px 0px 33px -11px rgba(0,0,0,0.35);
+}
+
+.logo_dash {
+  width: 120px;
+  height: 25px;
+  margin-top: 25px;
+  margin-bottom: 35px;
+  background-size: cover;
+  background-image: url(../assets/logoOlva.svg);
+}
+
+.content_btn_dash {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn_dash {
+  width: 200px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  
+  background-color: #FFF2D7;
+  color: #F9B52F;
+  font-weight: bold;
+}
+.btn_dash:last-child {
+  width: 200px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  border: none;
+  outline: none;
+  font-size: 13px;
+  padding: 10px 15px;
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  border-radius: 12px;
+}
+.btn_dash img {
+  width: 25px;
+  height: 25px;
+  margin-right: 15px;
+  filter: invert(75%) sepia(82%) saturate(1073%) hue-rotate(335deg) brightness(104%) contrast(95%);
+}
+.graficos_dash{
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.graficos_dash h2{
+  text-align: center;
+}
+/*==========================GRAFICO LINEAL*/
 .chart-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px; /* Ajusta la altura del contenedor del gráfico */
+  height: 300px;
+  /* Ajusta la altura del contenedor del gráfico */
 }
 
 canvas {
-  width: 300px; /* Ajusta el ancho del lienzo del gráfico */
-  height: 200px; /* Ajusta la altura del lienzo del gráfico */
+  width: 300px;
+  /* Ajusta el ancho del lienzo del gráfico */
+  height: 200px;
+  /* Ajusta la altura del lienzo del gráfico */
   margin: 10px;
   border: 1px solid #ccc;
 }
