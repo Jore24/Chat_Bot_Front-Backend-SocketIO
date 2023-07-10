@@ -22,7 +22,7 @@ function Register() {
     console.log(data)
 
     try {
-      const response = await axios.post('http://localhost:5000/register', data);
+      const response = await axios.post('https://backend-chatbot-4qg6.onrender.com/register', data);
 
       if (response.data.message === 'Registro exitoso') {
         navigate("/auth/login");

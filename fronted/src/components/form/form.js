@@ -9,7 +9,7 @@ import Borrar from '../../assets/IconBorrar.svg';
 import Enviar from '../../assets/Enviar.svg';
 
 
-const socket = io('http://localhost:5000');
+const socket = io('https://backend-chatbot-4qg6.onrender.com');
 
 const App = () => {
   const navigate = useNavigate();
@@ -24,7 +24,7 @@ const App = () => {
 
 
   useEffect(() => {
-    const socket = io('http://localhost:5000');
+    const socket = io('https://backend-chatbot-4qg6.onrender.com');
   
     socket.on('connect', () => {
       const initialMessage = '¡Hola! '+User+ '. Soy un asistente virtual. ¿En qué puedo ayudarte hoy?';
