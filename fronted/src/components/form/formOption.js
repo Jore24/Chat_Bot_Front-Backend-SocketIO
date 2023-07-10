@@ -5,7 +5,7 @@ import { UserContext } from '../..//conntext/contexsocketio';
 import io from 'socket.io-client';
 import "../../style/form.css";
 
-const socket = io('http://localhost:5000');
+const socket = io('https://backend-chatbot-4qg6.onrender.com');
 
 const App = () => {
     const [messages, setMessages] = useState([]);

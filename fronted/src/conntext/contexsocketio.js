@@ -9,7 +9,7 @@ export const ContextSocketProvider = ({ children }) => {
   const [User, setUser] = useState(null);
 
   useEffect(() => {
-    const SOCKET_URI = "ws://localhost:5000";
+    const SOCKET_URI = "https://backend-chatbot-4qg6.onrender.com";
     const socket = client(SOCKET_URI);
     setSocket(socket);
 

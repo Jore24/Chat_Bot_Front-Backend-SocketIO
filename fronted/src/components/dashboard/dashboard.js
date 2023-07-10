@@ -3,76 +3,92 @@ import Chart from 'chart.js/auto';
 import '../../style/chart.css';
 
 const Dashboard = () => {
-  const lineChartRef = useRef(null);
+  const doughnutChartRef = useRef(null);
 
   useEffect(() => {
-    let lineChart = null;
+    let doughnutChart = null;
 
-    const lineChartData = {
-      labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo'],
+    // Datos ficticios de interacción del usuario con el chatbot en Junio y Julio
+    const juneData = 75; // Porcentaje de interacción en Junio
+    const julyData = 85; // Porcentaje de interacción en Julio
+
+    const totalInteractions = juneData + julyData;
+
+    const doughnutChartData = {
+      labels: ['Junio', 'Julio'],
       datasets: [
         {
-          label: '',
-          borderColor: '#dc3545',
-          backgroundColor: 'rgba(220, 53, 69, 0.5)', // Color de fondo con transparencia
-          data: [50, 75, 80, 65, 90],
-          fill: true, // Rellenar área debajo de la línea
-          borderWidth: 2,
-          pointRadius: 0,
-          tension: 0,
+          label: 'Interacción',
+          data: [juneData, julyData],
+          backgroundColor: ['#007bff', '#dc3545'],
         },
       ],
     };
 
-    const lineChartConfig = {
-      type: 'line',
-      data: lineChartData,
+    const doughnutChartConfig = {
+      type: 'doughnut',
+      data: doughnutChartData,
       options: {
         responsive: true,
-        scales: {
-          x: {
-            grid: {
-              display: false,
-            },
-          },
-          y: {
-            grid: {
-              display: false,
-            },
-            ticks: {
-              beginAtZero: true,
-            },
-          },
-        },
         plugins: {
           legend: {
-            display: false,
+            position: 'bottom', // Posición de la leyenda
+            labels: {
+              // Personalizar las etiquetas de la leyenda
+              generateLabels: function (chart) {
+                const data = chart.data;
+                if (data.labels.length && data.datasets.length) {
+                  return data.labels.map(function (label, i) {
+                    const meta = chart.getDatasetMeta(0);
+                    const style = meta.controller.getStyle(i);
+
+                    // Obtener el porcentaje correspondiente a cada mes
+                    const percentage = data.datasets[0].data[i];
+                    const total = data.datasets[0].data.reduce((acc, val) => acc + val, 0);
+                    const percentageValue = ((percentage / total) * 100).toFixed(2) + '%';
+
+                    return {
+                      text: `${label} - ${percentageValue}`,
+                      fillStyle: style.backgroundColor,
+                      hidden: isNaN(data.datasets[0].data[i]) || meta.data[i].hidden,
+                      index: i,
+                    };
+                  });
+                }
+                return [];
+              },
+              // Agregar el total de interacciones en la leyenda
+              footer: {
+                text: `Total: ${totalInteractions}`,
+                textAlign: 'center',
+              },
+            },
           },
           title: {
             display: true,
-            text: '',
+            text: 'Indicadores de Interacción - Junio y Julio',
           },
         },
       },
     };
 
-    if (lineChartRef.current) {
-      if (lineChart) {
-        lineChart.destroy(); // Destruir gráfico anterior si existe
+    if (doughnutChartRef.current) {
+      if (doughnutChart) {
+        doughnutChart.destroy(); // Destruir gráfico anterior si existe
       }
-      lineChart = new Chart(lineChartRef.current, lineChartConfig);
+      doughnutChart = new Chart(doughnutChartRef.current, doughnutChartConfig);
     }
 
     return () => {
-      if (lineChart) {
-        lineChart.destroy(); // Destruir gráfico al desmontar el componente
+      if (doughnutChart) {
+        doughnutChart.destroy(); // Destruir gráfico al desmontar el componente
       }
     };
   }, []);
 
   return (
     <div className="chart-container">
-      <canvas ref={lineChartRef} id="lineChart"></canvas>
+      <canvas ref={doughnutChartRef} id="doughnutChart"></canvas>
     </div>
   );
 };
